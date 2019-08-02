@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AlbumsComponent } from './albums/albums.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AlbumComponent } from './album/album.component';
+import { PhotoComponent } from './photo/photo.component';
 
 
 const routes: Routes = [
+  { path: 'album/:id', component: PhotoComponent },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'albums', component: AlbumsComponent },
+  { path: 'album', component: AlbumComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'full'}
 ];
 

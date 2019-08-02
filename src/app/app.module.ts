@@ -4,19 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AlbumsComponent } from './albums/albums.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AlbumComponent } from './album/album.component';
+import { PhotoComponent } from './photo/photo.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    AlbumsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AlbumComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
