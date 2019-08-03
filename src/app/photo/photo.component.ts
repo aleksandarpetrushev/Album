@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { IPhoto } from '../photo.model';
 import { PhotoService } from '../photo.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-photo',
@@ -9,12 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./photo.component.css']
 })
 export class PhotoComponent implements OnInit {
-  photo: IPhoto;
-  @Input() title: string;
+  @Input() photo: IPhoto;
 
   constructor(private photoService: PhotoService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private toastr: ToastrService) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -22,12 +23,17 @@ export class PhotoComponent implements OnInit {
     this.photoService.getPhoto(id)
         .subscribe((photo: IPhoto) => {
           this.photo = photo;
-          this.title = photo.title;
         });
   }
 
   onSave(): void {
-    return;
+    this.photoService.updatePhoto(this.photo).subscribe(res => {
+      this.toastr.success('Info saved', 'Photo details have been saved');
+      this.router.navigate(['/album']);
+      }, (err) => {
+        console.log(err);
+      }
+    );
   }
 
 }
