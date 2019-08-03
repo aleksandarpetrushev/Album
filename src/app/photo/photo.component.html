@@ -1,4 +1,10 @@
 <div class="container">
+  <h3>Photo Details</h3>
   <img [src]="this.photo.url">
-  <div><input [(ngModel)]="this.title"></div>
+  <div class="input-div">
+    <textarea [(ngModel)]="title"></textarea>
+  </div>
+  <div>
+    <button style="float:left;" class="btn btn-success" (click)="onSave()">Save</button>
+  </div>
 </div>

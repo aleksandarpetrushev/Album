@@ -1,6 +1,10 @@
 <div class="container">
-    <div *ngFor="let photo of photos" class="photo row">
-      <img [src]="photo.thumbnailUrl" [routerLink]="['/album', photo.id]" routerLinkActive="router-link-active" >
-      <div id="title">{{photo.title}}</div>
+    <div *ngFor="let photo of photos" class="photo col-3-lg d-inline-flex">
+        <figure class="figure">
+          <img [src]="photo.thumbnailUrl" [routerLink]="['/album', photo.id]"
+          routerLinkActive="router-link-active"
+          class="figure-img img-fluid rounded">
+          <figcaption class="figure-caption">{{photo.title}}</figcaption>
+        </figure>
     </div>
 </div>
