@@ -32,3 +32,12 @@ button {
 textarea {
   width: 300px;
 }
+
+#cancel {
+  background-color: #999;
+  color: white;
+}
+
+button {
+  width: 100px;
+}

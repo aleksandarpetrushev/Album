@@ -10,6 +10,9 @@ import { PhotoComponent } from './photo/photo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { NewPhotoComponent } from './new-photo/new-photo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,17 @@ import { ToastrModule } from 'ngx-toastr';
     NavBarComponent,
     WelcomeComponent,
     AlbumComponent,
-    PhotoComponent
+    PhotoComponent,
+    NewPhotoComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

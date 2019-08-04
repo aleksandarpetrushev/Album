@@ -1,0 +1,52 @@
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Insert photo details below</h3>
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                      <label for="url">URL</label>
+                      <input type="text" class="form-control" name="url" [(ngModel)]="model.url" #url="ngModel" [ngClass]="{ 'is-invalid': f.submitted && url.invalid }" required />
+                      <div *ngIf="f.submitted && url.invalid" class="invalid-feedback">
+                          <div *ngIf="url?.errors.required">Image URL is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="thumbnailUrl">Thumbnail URL</label>
+                      <input type="text" class="form-control" name="thumbnailUrl" [(ngModel)]="model.thumbnailUrl" #thumbnailUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && thumbnailUrl.invalid }" required />
+                      <div *ngIf="f.submitted && thumbnailUrl.invalid" class="invalid-feedback">
+                          <div *ngIf="thumbnailUrl?.errors.required">Thumbnail URL is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="model.title" #title="ngModel" [ngClass]="{ 'is-invalid': f.submitted && title.invalid }" required />
+                    <div *ngIf="f.submitted && title.invalid" class="invalid-feedback">
+                        <div *ngIf="title?.errors.required">Title is required</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="id">ID</label>
+                      <input type="text" class="form-control" name="id" [(ngModel)]="model.id" #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required pattern="^[1-9]+[0-9]*$" />
+                      <div *ngIf="f.submitted && id.invalid" class="invalid-feedback">
+                          <div *ngIf="id?.errors.required">ID is required</div>
+                          <div *ngIf="id?.errors.pattern">ID must be a positive integer</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="albumId">Album ID</label>
+                    <input type="text" class="form-control" name="albumId" [(ngModel)]="model.albumId" #albumId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && albumId.invalid }" required pattern="^[1-9]+[0-9]*$" />
+                    <div *ngIf="f.submitted && albumId.invalid" class="invalid-feedback">
+                        <div *ngIf="albumId?.errors.required">Album ID is required</div>
+                        <div *ngIf="albumId?.errors.pattern">Album ID must be a positive integer</div>
+                    </div>
+                </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary">Add Photo</button>
+                      <button id="cancel" class="btn" (click)="onCancel()">Cancel</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

@@ -4,6 +4,8 @@ import { PhotoService } from '../photo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+declare let bootbox: any;
+
 @Component({
   selector: 'app-photo',
   templateUrl: './photo.component.html',
@@ -34,6 +36,22 @@ export class PhotoComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  onCancel(): void {
+    this.toastr.info('Changes not saved');
+    this.router.navigate(['/album']);
+  }
+
+  onDelete(): void {
+    if (confirm('Delete this photo?')) {
+      this.photoService.deletePhoto(this.photo.id).subscribe(re => {
+        this.toastr.warning('Photo deleted.');
+        this.router.navigate(['/album']);
+      }, (err) => {
+        console.log(err);
+      });
+    }
   }
 
 }

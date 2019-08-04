@@ -1,0 +1,10 @@
+#cancel {
+    margin-left: 20px;
+    background-color: #999;
+    color: white;
+}
+
+#cancel:hover {
+  background-color: #666;
+}
+
