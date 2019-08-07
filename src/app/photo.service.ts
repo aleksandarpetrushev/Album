@@ -25,7 +25,9 @@ export class PhotoService {
   }
 
   getPhoto(id: number): Observable<IPhoto> {
-    return this.http.get<IPhoto>(url + '/' + id).pipe(
+    const url1 = url + '/' + id;
+
+    return this.http.get<IPhoto>(url1 + '/' + id).pipe(
       tap(_ => console.log(`fetched product id=${id}`)),
       catchError(this.handleError<IPhoto>(`getPhoto id=${id}`))
     );

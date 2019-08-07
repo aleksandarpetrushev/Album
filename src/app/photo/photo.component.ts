@@ -30,7 +30,7 @@ export class PhotoComponent implements OnInit {
 
   onSave(): void {
     this.photoService.updatePhoto(this.photo).subscribe(res => {
-      this.toastr.success('Info saved', 'Photo details have been saved');
+      this.toastr.success('Photo details have been saved');
       this.router.navigate(['/album']);
       }, (err) => {
         console.log(err);
