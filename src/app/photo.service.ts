@@ -28,7 +28,7 @@ export class PhotoService {
     const url1 = url + '/' + id;
 
     return this.http.get<IPhoto>(url1 + '/' + id).pipe(
-      tap(_ => console.log(`fetched product id=${id}`)),
+      tap(_ => console.log(`fetched photo id=${id}`)),
       catchError(this.handleError<IPhoto>(`getPhoto id=${id}`))
     );
   }
